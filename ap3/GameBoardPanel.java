@@ -1,5 +1,3 @@
-package ap3;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,13 +24,6 @@ import javax.swing.border.Border;
    It is decomposed into a few other classes that are inner classes of this one.
    
    Depends on the existence of the two files "images/facesmile.gif" and "images/facedead.gif"
-   
-   @author CMB
-      
-   Change history:
-   [10/10/18 CMB] Fixed bug where it displayed "?" in some squares erroneously at the end of the game.
-            (included refactoring to keep the body of updateDisplayProperties within 30 lines)
-
  */
 
 

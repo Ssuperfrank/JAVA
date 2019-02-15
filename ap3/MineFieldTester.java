@@ -1,5 +1,3 @@
-package ap3;
-
 public class MineFieldTester {
 
 	

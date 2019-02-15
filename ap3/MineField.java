@@ -1,11 +1,4 @@
-package ap3;
-// Name: Jiaqi Fan
-// USC NetID:jiaqifan
-// CS 455 PA3
-// Fall 2018
-
-
-/** 
+/**
    MineField
       class with locations of mines for a game.
       This class is mutable, because we sometimes need to change it once it's created.
@@ -36,7 +29,7 @@ public class MineField {
 	   for (int i = 0; i <numOfRows; i++){
 		   for (int j = 0; j < numOfCols; j++){
 			   mineField [i][j] = mineData[i][j];
-			   if (hasMine(i,j)==true) numOfMines ++;
+			   if (hasMine(i,j)) numOfMines ++;
 		   }   
 		}
    }
@@ -127,11 +120,7 @@ public class MineField {
       @return whether (row, col) is a valid field location
    */
    public boolean inRange(int row, int col) {
-      if((row<numRows() && row>=0 ) && (col< numCols()  && col>= 0)){
-    	  return true;    
-      }else{
-    	  return false;
-      }   
+      return (row<numRows() && row>=0 ) && (col< numCols()  && col>= 0);
    }
    
    
@@ -162,30 +151,20 @@ public class MineField {
    */    
    public boolean hasMine(int row, int col) {
 	 if (inRange(row,col)){
-		 if (this.mineField[row][col]!=true){
-			  return false;
-		  }else{
-			  return true;
-		  }
+		 return this.mineField[row][col];
 	 }else{
 		 return false;
 	 }	   
    }
-   
-   
+
    /**
       Returns the number of mines you can have in this minefield.  For mines created with the 3-arg constructor,
       some of the time this value does not match the actual number of mines currently on the field.  See doc for that
       constructor, resetEmpty, and populateMineField for more details.
-    * @return
+    * @return number of mines
     */
    public int numMines() {
-      return numOfMines;       // DUMMY CODE so skeleton compiles
+	   return numOfMines;       // DUMMY CODE so skeleton compiles
    }
-
-   
-   // <put private methods here>
-   
-         
 }
 

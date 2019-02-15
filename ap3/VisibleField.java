@@ -1,11 +1,3 @@
-package ap3;
-
-// Name: Jiaqi Fan
-// USC NetID:jiaqifan
-// CS 455 PA3
-// Fall 2018
-
-
 /**
   VisibleField class
   This is the data that's being displayed at any one point in the game (i.e., visible field, because it's what the
@@ -60,11 +52,7 @@ public class VisibleField {
 		   for (int j = 0; j < mineField.numCols(); j++){
 			statusField[i][j] = -1;   
 		   }
-      } 
-      
-      
-      
-      
+      }
    }
    
    
@@ -87,7 +75,7 @@ public class VisibleField {
       @return the minefield
     */
    public MineField getMineField() {
-      return field;       // DUMMY CODE so skeleton compiles
+      return field;
    }
    
    
@@ -161,15 +149,14 @@ public class VisibleField {
 			  statusField[row][col] = getMineField().numAdjacentMines(row, col);	  
 		  }else{
 			  statusField[row][col] = getMineField().numAdjacentMines(row, col);
-			  DFS(row,col);			  
+			  uncoverHelper(row,col);
 		  }
 			  return true;
-	  }	  
-
+	  }
    }
    
  
-   private void DFS(int row ,int col ){
+   private void uncoverHelper(int row ,int col ){
 	   int []rowCh ={ 0,0,-1,-1,-1,1,1, 1};
 	   int []colCh ={-1,1,-1, 0, 1,0,1,-1};
 	   for(int i=0 ; i<8 ;i++){    		   		  
@@ -179,13 +166,12 @@ public class VisibleField {
     			  if( getStatus(rowNew, colNew) == -2){
     				  continue;
     			  }
-    			  
     			  if (!isUncovered(rowNew, colNew)&&!getMineField().hasMine(rowNew, colNew)){    				  
-    					  statusField[rowNew][colNew] = getMineField().numAdjacentMines(rowNew, colNew);
-    					  if(getMineField().numAdjacentMines(rowNew, colNew)!=0){
-    						  continue;
-    					  }
-    	    			  DFS(rowNew,colNew);  
+    			  		statusField[rowNew][colNew] = getMineField().numAdjacentMines(rowNew, colNew);
+    			  		if(getMineField().numAdjacentMines(rowNew, colNew)!=0){
+    			  			continue;
+    			  		}
+                      uncoverHelper(rowNew,colNew);
     			  }
     		  }
 	   }
@@ -266,11 +252,6 @@ public class VisibleField {
 	   }else{
 		   return true;
 	   }
-	   
-	   
+
    }
-   
- 
-   // <put private methods here>
-   
 }

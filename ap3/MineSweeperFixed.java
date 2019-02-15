@@ -1,4 +1,3 @@
-package ap3;
 /**
    MineSweeperFixed -- main class for a GUI minesweeper game.
    Uses a hard-coded mine field.  For more details about this
