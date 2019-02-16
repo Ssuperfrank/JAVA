@@ -1,5 +1,3 @@
-package ap4;
-
 public class ScoreTable {
 	// variables 
 	private int [] score = new int [26];
